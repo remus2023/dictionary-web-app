@@ -194,4 +194,7 @@ function searchSynonyms(synonyms) {
   console.log(synonyms);
   fetchWords(synonyms);
 }
-function Play() {}
+function Play() {
+  //some code here
+  let test = "test";
+}
