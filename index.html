@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="./script.js" defer></script>
+    <title>Frontend Mentor | Dictionary web app</title>
+  </head>
+  <body>
+    <header class="header">
+      <img
+        src="./assets/images/logo.svg"
+        alt="logo"
+        width="32px"
+        height="36px"
+        class="header__logo"
+      />
+      <div class="header__features">
+        <div class="header__change-fonts" id="showFonts">
+          <div class="header__fonts" id="headerFonts">Sans Serif</div>
+          <img
+            src="./assets/images/icon-arrow-down.svg"
+            alt="Arrow"
+            class="header__arrow"
+          />
+          <ul class="header__select-fonts" id="selectFonts">
+            <li class="header__font header__font--sans" id="sans">
+              Sans Serif
+            </li>
+            <li class="header__font header__font--serif" id="serif">Serif</li>
+            <li class="header__font header__font--mono" id="mono">Mono</li>
+          </ul>
+        </div>
+        <div class="header__line-space"></div>
+        <div class="header__change-themes">
+          <label class="header__switch">
+            <input class="header__input" type="checkbox" id="changeTheme" />
+            <span class="header__slider"></span>
+          </label>
+          <img
+            src="./assets/images/icon-moon-light.svg"
+            alt="Moon"
+            class="header__moon"
+            id="headerMoon"
+          />
+        </div>
+      </div>
+    </header>
+
+    <section class="search">
+      <div class="search__box">
+        <input
+          class="search__input"
+          type="text"
+          name="text"
+          placeholder="Search for any word…"
+          id="searchInput"
+        />
+        <img
+          src="./assets/images/icon-search.svg"
+          alt="search"
+          class="search__icon"
+          id="searchIcon"
+        />
+      </div>
+      <div class="search__error" id="searchError" style="display: none">
+        Whoops, can’t be empty…
+      </div>
+    </section>
+
+    <div class="keyword-explain" id="keywordExplain">
+      <section class="pronounce">
+        <div class="pronounce__box">
+          <div class="pronounce__word" id="word">word</div>
+          <div class="pronounce__phonetic" id="phonetic">phonetics</div>
+        </div>
+        <img
+          src="./assets/images/icon-play.svg"
+          alt="Play audio file"
+          class="pronounce__audio"
+          data-target="#playAudioFilea"
+          id="playAudio"
+        />
+        <audio>
+          <source src="" type="audio/mpeg" id="playAudioFile" />
+        </audio>
+      </section>
+      <section class="explain" id="explain"></section>
+      <section class="source">
+        <h4 class="source__title">Source</h4>
+        <a class="source__link" href="" id="sourceLink" title="source link"></a>
+        <img
+          src="./assets/images/icon-new-window.svg"
+          alt="New windows"
+          class="source__img"
+        />
+      </section>
+    </div>
+    <div class="no-results" style="display: none" id="noResults">
+      <img
+        src="./assets/images/sad.svg"
+        alt="sad"
+        class="no-result__img"
+        width="64px"
+        height="64px"
+      />
+      <div class="no-results__no-definition">No Definitions Found</div>
+      <div class="no-results__explain">
+        Sorry pal, we couldn't find definitions for the word you were looking
+        for. You can try the search again at later time or head to the web
+        instead.
+      </div>
+    </div>
+  </body>
+</html>
