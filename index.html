@@ -83,13 +83,15 @@
           <div class="pronounce__phonetic" id="phonetic">phonetics</div>
         </div>
         <img
+          onclick="playAudioPronounce()"
           src="./assets/images/icon-play.svg"
           alt="Play audio file"
           class="pronounce__audio"
-          data-target="#playAudioFilea"
+          data-target="#playAudioFile"
           id="playAudio"
         />
-        <audio>
+        <button onclick="playAudioPronounce()" type="button">Play</button>
+        <audio id="audio">
           <source src="" type="audio/mpeg" id="playAudioFile" />
         </audio>
       </section>
