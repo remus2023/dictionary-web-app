@@ -24,6 +24,8 @@ const searchError = document.querySelector("#searchError");
 
 const playAudioFile = document.querySelector("#playAudioFile");
 
+const audio = document.querySelector("#audio");
+
 let wordDb = [];
 let theme = "light";
 
@@ -78,10 +80,10 @@ monoFontSelected.addEventListener("click", () => {
   headerFonts.innerText = "Mono";
 });
 
-async function fetchWords(aaa) {
+async function fetchWords(word) {
   try {
     const results = await fetch(
-      `https://api.dictionaryapi.dev/api/v2/entries/en/${aaa}`
+      `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`
     );
     const dataDb = await results.json();
     wordDb = dataDb[0];
@@ -194,4 +196,9 @@ function searchSynonyms(synonyms) {
   console.log(synonyms);
   fetchWords(synonyms);
 }
-function Play() {}
+function playAudioPronounce() {
+  const audioSRC = wordDb.phonetics.find((element) => element.audio).audio;
+  const audioTest = new Audio(audioSRC);
+  audioTest.play();
+  console.log("play");
+}

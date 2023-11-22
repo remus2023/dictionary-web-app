@@ -351,6 +351,9 @@ body {
   justify-content: center;
   align-items: flex-start;
 }
+.pronounce__audio {
+  cursor: pointer;
+}
 .pronounce__audio--inactive {
   opacity: 0.5;
 }
