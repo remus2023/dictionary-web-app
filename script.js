@@ -1,3 +1,6 @@
+const body = document.querySelector("body");
+const bodyTag = document.querySelector("html");
+
 const searchInput = document.querySelector("#searchInput");
 const searchIcon = document.querySelector("#searchIcon");
 const wordTag = document.querySelector("#word");
@@ -49,7 +52,6 @@ changeTheme.addEventListener("input", changeThemes);
 
 showFontsBox.addEventListener("click", showFonts);
 
-let bodyTag = document.querySelector("html");
 bodyTag.addEventListener("click", function (event) {
   let target = event.target;
   if (
@@ -62,17 +64,14 @@ bodyTag.addEventListener("click", function (event) {
 });
 
 sansFontSelected.addEventListener("click", () => {
-  //document.documentElement.style.removeProperty("--")
   document.documentElement.style.setProperty("--font", "'Inter', sans-serif");
   headerFonts.innerText = "Sans Serif";
 });
 serifFontSelected.addEventListener("click", () => {
-  //document.documentElement.style.removeProperty("--")
   document.documentElement.style.setProperty("--font", "'Lora', serif");
   headerFonts.innerText = "Serif";
 });
 monoFontSelected.addEventListener("click", () => {
-  //document.documentElement.style.removeProperty("--")
   document.documentElement.style.setProperty(
     "--font",
     "'Inconsolata', monospace"
@@ -90,9 +89,7 @@ async function fetchWords(word) {
     displayPronounce();
     displayMeaning();
     displaySource();
-    console.log(wordDb);
   } catch (error) {
-    console.log("Eroare este: ", error);
     keywordExplain.style.setProperty("display", "none");
     noResults.removeAttribute("style");
     if (!searchInput.value) {
@@ -100,7 +97,14 @@ async function fetchWords(word) {
       noResults.setAttribute("style", "display: none");
     }
   } finally {
-    console.log(keywordExplain, noResults);
+    console.log(
+      "api",
+      wordDb,
+      "tag keyword",
+      keywordExplain,
+      "tag noresults",
+      noResults
+    );
   }
 }
 function displayPronounce() {
@@ -108,8 +112,6 @@ function displayPronounce() {
   keywordExplain.removeAttribute("style");
   searchError.style.setProperty("display", "none");
   wordTag.innerText = wordDb.word;
-  //playAudioFile.src = wordDb.phonetics[2].audio;
-  //console.log(wordDb.phonetics[2].audio);
   if (wordDb.phonetics && wordDb.phonetics.length > 0) {
     const phonetic = wordDb.phonetics.find((element) => element.text).text;
     const audioSRC = wordDb.phonetics.find((element) => element.audio).audio;
@@ -118,8 +120,6 @@ function displayPronounce() {
     }
     if (audioSRC) {
       playAudioFile.setAttribute("src", audioSRC);
-      //playAudioFile.src = "file";
-      console.log(audioSRC);
     } else {
       playAudio.classList.add("pronounce__audio--inactive");
     }
@@ -166,12 +166,9 @@ function displaySource() {
   sourceLink.innerText = wordDb.sourceUrls[0];
   sourceLink.href = wordDb.sourceUrls[0];
 }
-
 function changeThemes() {
   if (theme === "light") {
-    const body = document.querySelector("body");
     body.style.setProperty("--bg-color", "#050505");
-    //document.documentElement.style.setProperty("--bg-color", "#050505");
     body.style.setProperty("--font-color-h", "#FFFFFF");
     body.style.setProperty("--search-bg", "#1F1F1F");
     body.style.setProperty("--shadow-bg", "#A445ED");
@@ -179,9 +176,6 @@ function changeThemes() {
     headerMoon.src = "./assets/images/icon-moon-dark.svg";
     theme = "dark";
   } else {
-    //const html = document.querySelector("html");
-    const body = document.querySelector("body");
-    //html.removeAttribute("style");
     body.removeAttribute("style");
     headerMoon.src = "./assets/images/icon-moon-light.svg";
     theme = "light";
@@ -193,12 +187,10 @@ function showFonts() {
 
 function searchSynonyms(synonyms) {
   searchInput.value = synonyms;
-  console.log(synonyms);
   fetchWords(synonyms);
 }
 function playAudioPronounce() {
   const audioSRC = wordDb.phonetics.find((element) => element.audio).audio;
   const audioTest = new Audio(audioSRC);
   audioTest.play();
-  console.log("play");
 }

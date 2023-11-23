@@ -24,6 +24,16 @@ body {
   margin: 58px auto;
   background-color: var(--bg-color);
 }
+@media (max-width: 768px) {
+  body {
+    padding: 0 40px;
+  }
+}
+@media (max-width: 500x) {
+  body {
+    padding: 0 24px;
+  }
+}
 
 .header {
   max-width: 736px;
@@ -34,6 +44,26 @@ body {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 51px;
+}
+@media (max-width: 768px) {
+  .header {
+    max-width: 689px;
+  }
+}
+@media (max-width: 500px) {
+  .header {
+    max-width: 327px;
+  }
+}
+.header__logo {
+  width: 32px;
+  height: 36px;
+}
+@media (max-width: 500px) {
+  .header__logo {
+    width: 28px;
+    height: 32px;
+  }
 }
 .header__features {
   max-width: 255px;
@@ -46,13 +76,19 @@ body {
   gap: 26px;
   position: relative;
 }
+@media (max-width: 500px) {
+  .header__features {
+    max-width: 235px;
+    gap: 16px;
+  }
+}
 .header__change-fonts {
   max-width: 124px;
   width: 100%;
   height: auto;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   gap: 16px;
   cursor: pointer;
@@ -64,6 +100,11 @@ body {
   font-style: normal;
   font-weight: 700;
   line-height: 24px;
+}
+@media (max-width: 500px) {
+  .header__fonts {
+    font-size: 14px;
+  }
 }
 .header__select-fonts {
   max-width: 183px;
@@ -96,6 +137,11 @@ body {
   font-style: normal;
   font-weight: 700;
   line-height: 24px;
+}
+@media (max-width: 500px) {
+  .header__font {
+    font-size: 14px;
+  }
 }
 .header__font--sans {
   font-family: "Inter", sans-serif;
@@ -143,7 +189,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #A445ED;
+  background-color: #757575;
   transition: 0.4s;
   border-radius: 34px;
 }
@@ -179,6 +225,16 @@ body {
   gap: 8px;
   margin-bottom: 45px;
 }
+@media (max-width: 768px) {
+  .search {
+    max-width: 689px;
+  }
+}
+@media (max-width: 500px) {
+  .search {
+    max-width: 327px;
+  }
+}
 .search__box {
   max-width: 736px;
   width: 100%;
@@ -191,6 +247,12 @@ body {
   border-radius: 16px;
   background-color: var(--search-bg);
 }
+@media (max-width: 500px) {
+  .search__box {
+    padding: 14px 24px;
+    height: 48px;
+  }
+}
 .search__box:focus-within, .search__box:hover {
   border: 1px solid var(--font-color-synonyms);
   cursor: pointer;
@@ -202,10 +264,15 @@ body {
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  width: 500px;
+  width: 100%;
   border: none;
   outline: none;
   background-color: var(--search-bg);
+}
+@media (max-width: 500px) {
+  .search__input, .search__input:focus-visible {
+    font-size: 16px;
+  }
 }
 .search__error {
   font-family: var(--font);
@@ -225,6 +292,11 @@ body {
   justify-content: center;
   align-items: flex-start;
   gap: 40px;
+}
+@media (max-width: 768px) {
+  .explain {
+    max-width: 689px;
+  }
 }
 .explain__container {
   max-width: 736px;
@@ -254,6 +326,11 @@ body {
   font-weight: 700;
   line-height: normal;
 }
+@media (max-width: 500px) {
+  .explain__part-of-speech {
+    font-size: 18px;
+  }
+}
 .explain__meaning {
   font-family: var(--font);
   color: #757575;
@@ -261,6 +338,11 @@ body {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+}
+@media (max-width: 500px) {
+  .explain__meaning {
+    font-size: 16px;
+  }
 }
 .explain__line {
   width: 100%;
@@ -286,6 +368,11 @@ body {
   line-height: 24px;
   margin: 0 0 13px 47px;
 }
+@media (max-width: 500px) {
+  .explain__definition {
+    font-size: 15px;
+  }
+}
 .explain__definition::marker {
   color: #8F19E8;
 }
@@ -299,6 +386,11 @@ body {
   align-items: center;
   gap: 15px;
   flex-wrap: wrap;
+}
+@media (max-width: 500px) {
+  .explain__synonyms {
+    font-size: 16px;
+  }
 }
 .explain__synonym {
   font-family: var(--font);
@@ -331,6 +423,11 @@ body {
   justify-content: center;
   align-items: center;
 }
+@media (max-width: 500px) {
+  .keyword-explain {
+    max-width: 327px;
+  }
+}
 
 .pronounce {
   max-width: 736px;
@@ -353,6 +450,14 @@ body {
 }
 .pronounce__audio {
   cursor: pointer;
+  width: 75px;
+  height: 75px;
+}
+@media (max-width: 500px) {
+  .pronounce__audio {
+    width: 48px;
+    height: 48px;
+  }
 }
 .pronounce__audio--inactive {
   opacity: 0.5;
@@ -365,6 +470,11 @@ body {
   font-weight: 700;
   line-height: normal;
 }
+@media (max-width: 500px) {
+  .pronounce__word {
+    font-size: 32px;
+  }
+}
 .pronounce__phonetic {
   font-family: var(--font);
   color: var(--font-color-synonyms);
@@ -372,6 +482,16 @@ body {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+}
+@media (max-width: 500px) {
+  .pronounce__phonetic {
+    font-family: var(--font);
+    color: var(--font-color-synonyms);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+  }
 }
 
 .source {
@@ -385,6 +505,11 @@ body {
   gap: 20px;
   margin-top: 40px;
   border-top: 1px solid var(--line-bg);
+}
+@media (max-width: 500px) {
+  .source {
+    flex-wrap: wrap;
+  }
 }
 .source__title {
   font-family: var(--font);
@@ -415,6 +540,11 @@ body {
   align-items: center;
   margin-top: 132px;
   gap: 24px;
+}
+@media (max-width: 500px) {
+  .no-results {
+    max-width: 327px;
+  }
 }
 .no-results__no-definition {
   font-family: var(--font);
